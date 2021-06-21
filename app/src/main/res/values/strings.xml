@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GallaryPractice</string>
+
+    <string name="request_external_read_permission">사진을 불러오기 위해 외부저장소 접근 권한이 필요합니다.</string>
+    <string name="reason_external_read_permission">권한을 허용하려면 확인 버튼을 눌러주세요.</string>
+    <string name="permission_rejected">권한이 거부됨.</string>
+</resources>
