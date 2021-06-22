@@ -4,8 +4,10 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.widget.GridView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.gallarypractice.adapter.ImageAdapter
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.noButton
 import org.jetbrains.anko.toast
@@ -64,7 +66,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         } else {
-            /* Todo : 이미지를 가져오는 메서드 호출 */
+           getAllPhotos()
         }
     }
 
@@ -79,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                 if (grantResults.isNotEmpty() && grantResults[0]
                     == PackageManager.PERMISSION_GRANTED
                 ) {
-                    /* Todo : getAllPhotos() */
+                    getAllPhotos()
                 } else {
                     toast(getString(R.string.permission_rejected))
                 }
@@ -102,7 +104,10 @@ class MainActivity : AppCompatActivity() {
             }
             cursor.close()
         }
+        val adapter = ImageAdapter(this,uriArr)
+        gridView.numColumns = 3
+        gridView.adapter = adapter
 
-        /* Todo : 이미지 uri array list를 gridView apdapter에 넣어주어야함 */
+
     }
 }
